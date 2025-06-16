@@ -1,0 +1,121 @@
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background: url(../../assets/bg.jpg);
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%; 
+  animation: moveBackground 20s ease-in-out infinite;
+  position: absolute;
+  position: relative;
+  overflow: hidden; /* Esconde o excesso do fundo girando */
+  z-index: 1;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-sizing: border-box;
+  padding:0 8vw;
+}
+@keyframes spinBackground {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  #hero::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    background: url(../../assets/bg.jpg) no-repeat center center;
+    background-size: cover;
+    opacity: 0.4; /* suaviza o fundo */
+    z-index: -1;
+    animation: spinBackground 80s linear infinite;
+    transform-origin: center;
+    border-radius: 50%;
+    filter: brightness(0.6);
+  }
+#hero-text{
+    margin-top: 10%
+}
+#hero h6 {
+  color: #fff;
+  font-family: "General Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin: 0;
+}
+#hero h1 {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Clash Display";
+  font-size: 7vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+#hero h2 {
+  color: #f2f2f2;
+  font-family: "General Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#hero button {
+  border-radius: 15px 16px 16px 16px;
+  border: 1px solid #02569d;
+  background: linear-gradient(
+    95deg,
+    rgba(6, 121, 218, 0.1) -28.81%,
+    rgba(6, 121, 218, 0.1) 103.27%
+  );
+  backdrop-filter: blur(17.5px);
+  color: #0679da;
+  font-family: "Clash Display";
+  font-size: 1rem;
+  padding: 10px 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+#hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  position: relative;
+  margin-top: 9%;
+}
+#hero-image img {
+  width: 100%;
+}
+.luz-paulo {
+  width: 70%;
+  height: 40%;
+  background: #0679da;
+  filter: blur(160px);
+  position: absolute;
+  z-index: -1;
+}
+.sombra-paulo {
+  background: #000000;
+  filter: blur(16px);
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: -4%;
+}
