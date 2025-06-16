@@ -15,6 +15,9 @@ nav {
   box-sizing: border-box;
   width: 85vw;
   height: 8vh;
+  position: fixed;
+  z-index: 1000;
+  margin: 1vw 6vw;
 }
 #logo {
   width: 6vw;
@@ -38,4 +41,10 @@ nav ul li a {
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+}
+nav button {
+  border-radius: 10px;
+  background: #f2f2f2;
+  width: 85px;
+  height: 35px;
 }

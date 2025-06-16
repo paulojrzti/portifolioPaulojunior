@@ -10,41 +10,41 @@
   background-size: cover;
   background-position: 50% 50%; 
   animation: moveBackground 20s ease-in-out infinite;
-  position: absolute;
-  position: relative;
-  overflow: hidden; /* Esconde o excesso do fundo girando */
+  position: sticky; /* 👈 Fixa o hero na rolagem */
+  top: 0;            /* 👈 Garante que fique no topo */
+  overflow: hidden;
   z-index: 1;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   box-sizing: border-box;
-  padding:0 8vw;
+  padding: 0 8vw;
 }
 @keyframes spinBackground {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
-  #hero::before {
-    content: "";
-    position: absolute;
-    top: -25%;
-    left: -25%;
-    width: 150%;
-    height: 150%;
-    background: url(../../assets/bg.jpg) no-repeat center center;
-    background-size: cover;
-    opacity: 0.4; /* suaviza o fundo */
-    z-index: -1;
-    animation: spinBackground 80s linear infinite;
-    transform-origin: center;
-    border-radius: 50%;
-    filter: brightness(0.6);
+  100% {
+    transform: rotate(360deg);
   }
-#hero-text{
-    margin-top: 10%
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: url(../../assets/bg.jpg) no-repeat center center;
+  background-size: cover;
+  opacity: 0.4; /* suaviza o fundo */
+  z-index: -1;
+  animation: spinBackground 80s linear infinite;
+  transform-origin: center;
+  border-radius: 50%;
+  filter: brightness(0.6);
+}
+#hero-text {
+  margin-top: 10%;
 }
 #hero h6 {
   color: #fff;
@@ -104,18 +104,28 @@
   width: 100%;
 }
 .luz-paulo {
-  width: 70%;
-  height: 40%;
+  width: 30%;
+  height: 30%;
   background: #0679da;
-  filter: blur(160px);
+  filter: blur(200px);
   position: absolute;
   z-index: -1;
 }
 .sombra-paulo {
   background: #000000;
-  filter: blur(16px);
-  height: 50px;
+  border-radius: 100%;
+  filter: blur(15px);
+  height: 15%;
   width: 100%;
   position: absolute;
-  bottom: -4%;
+  bottom: -6%;
+  z-index: 3;
+}
+#hero-text p {
+  color: #ccc;
+  font-size: 1.2rem;
+  font-family: "General Sans";
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 20px 0;
 }
