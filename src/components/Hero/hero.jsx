@@ -1,34 +1,35 @@
+import Typewriter from "react-typewriter-effect";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 //assets
 import "./hero.css";
 import Paulo from "../../assets/paulo.webp";
 //icons
 import Linkedin from "../../assets/icons/linkedin.svg";
 import Insta from "../../assets/icons/insta.svg";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 function Hero() {
-const [showAbout, setShowAbout] = useState(false);
-const [scrollUnlocked, setScrollUnlocked] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [scrollUnlocked, setScrollUnlocked] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
 
-    // Scroll para baixo ativa "About me"
-    if (!showAbout && scrollPosition > 110) {
-      setShowAbout(true);
-    }
+      // Scroll para baixo ativa "About me"
+      if (!showAbout && scrollPosition > 110) {
+        setShowAbout(true);
+      }
 
-    // Scroll para cima volta para o texto original
-    if (showAbout && scrollPosition <= 110) {
-      setShowAbout(false);
-    }
-  };
+      // Scroll para cima volta para o texto original
+      if (showAbout && scrollPosition <= 110) {
+        setShowAbout(false);
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [showAbout]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showAbout]);
 
   return (
     <>
@@ -45,19 +46,26 @@ useEffect(() => {
                   transition={{ duration: 0.5 }}
                 >
                   <h6>olá, eu sou</h6>
-                  <h1>
+                  <h1 className="hero-title">
                     Paulo <span>Junior</span>
                   </h1>
-                  <h2>front-end developer</h2>
+                    <h2 className="typewriter-wrapper">
+                      <Typewriter
+                        textStyle={{ display: "inline" }}
+                        startDelay={300}
+                        cursorColor="#ffffff"
+                        multiText={[
+                          "front-end developer",
+                          "web designer",
+                          "freelancer",
+                          "UX/UI entusiasta",
+                        ]}
+                        multiTextDelay={2500}
+                        typeSpeed={100}
+                        multiTextLoop
+                      />     
+                  </h2>
                   <button>Entre em contato</button>
-                  <div className="social-icons">
-                    <a href="#">
-                      <img src={Linkedin} alt="linkedin" />
-                    </a>
-                    <a href="#">
-                      <img src={Insta} alt="instagram" />
-                    </a>
-                  </div>
                 </motion.div>
               ) : (
                 <motion.div
@@ -67,7 +75,7 @@ useEffect(() => {
                   exit={{ opacity: 0, y: 100 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2>About me</h2>
+                  <h3>About me</h3>
                   <p>
                     Sou Paulo Junior, desenvolvedor front-end e designer, com 19
                     anos. Estudo Gestão de TI e atuo na DNC, onde participo de
